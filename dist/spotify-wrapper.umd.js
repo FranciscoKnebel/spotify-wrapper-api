@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["spotifyWrapper"] = factory();
+		exports["SpotifyWrapper"] = factory();
 	else
-		root["spotifyWrapper"] = factory();
+		root["SpotifyWrapper"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -85,7 +85,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var HEADERS = exports.HEADERS = {
 	headers: {
-		Authorization: 'Bearer ' + "BQBXoSB7vAXzux9EFuiD8a-7oyYy79QPRd-BW85WijefnhC4X_nBFjAHOobiW19hdrVRmtOE93qZ2g0nXf25m-dcZ_A9ZbYW-LJX3xb680xsxRY8tWHUf_mboMEzcZyJEkedMUxTrQITRG9Bv-sL4Q"
+		Authorization: 'Bearer ' + "BQBONT0mbHTSSgG94SEH7U3UfMCPnSE47dwK_gZEPET0u_w1tSAZxVdBMDNho_ZOxyimCHbE68xNSE0RR892RT4gKsviisJdOfFQhHRFkcgXDCPMfiiM0f6alU7FK2auFZuOoG1bRYfypAczGe6vyA"
 	}
 };
 
@@ -116,20 +116,30 @@ exports.default = toJSON;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _search = __webpack_require__(3);
 
 var _album = __webpack_require__(4);
 
-module.exports = {
-	search: _search.search,
-	searchArtists: _search.searchArtists,
-	searchAlbums: _search.searchAlbums,
-	searchTracks: _search.searchTracks,
-	searchPlaylists: _search.searchPlaylists,
-	getAlbum: _album.getAlbum,
-	getAlbums: _album.getAlbums,
-	getAlbumTracks: _album.getAlbumTracks
+var _config = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var SpotifyWrapper = function SpotifyWrapper(options) {
+	_classCallCheck(this, SpotifyWrapper);
+
+	if (options === undefined) {
+		options = {};
+	}
+
+	this.apiURL = options.apiURL || _config.API_URL;
+	this.token = options.token;
 };
+
+exports.default = SpotifyWrapper;
 
 /***/ }),
 /* 3 */

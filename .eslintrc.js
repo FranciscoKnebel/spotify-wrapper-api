@@ -22,6 +22,7 @@ module.exports = {
 		"no-console": 0,
 		"no-underscore-dangle": 0,
 		"no-unused-expressions": 0,
+		"no-param-reassign": 0,
 		"import/no-extraneous-dependencies": 0,
 		"no-unused-vars": [
       "error",

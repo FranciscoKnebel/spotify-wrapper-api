@@ -33,9 +33,11 @@
 					})
 			}
 
-			const albums1 = spotifyWrapper.searchAlbums('The Beatles');
-			const albums2 = spotifyWrapper.searchAlbums('Rolling Stones');
-			const albums3 = spotifyWrapper.searchAlbums('Led Zeppelin');
+			const spotify = new SpotifyWrapper({ token: 'BQBONT0mbHTSSgG94SEH7U3UfMCPnSE47dwK_gZEPET0u_w1tSAZxVdBMDNho_ZOxyimCHbE68xNSE0RR892RT4gKsviisJdOfFQhHRFkcgXDCPMfiiM0f6alU7FK2auFZuOoG1bRYfypAczGe6vyA'});
+
+			const albums1 = spotify.searchAlbums('The Beatles');
+			const albums2 = spotify.searchAlbums('Rolling Stones');
+			const albums3 = spotify.searchAlbums('Led Zeppelin');
 
 			fetchTheDamnAlbumsBaby([albums1, albums2, albums3], element);
 

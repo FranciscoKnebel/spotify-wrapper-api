@@ -1,5 +1,5 @@
 {
-  "name": "js-com-tdd-spotifywrapper",
+  "name": "spotify-wrapper-api",
   "version": "1.0.0",
   "description": "Spotify Wrapper API, curso JS com TDD.",
   "main": "src/index.js",
@@ -63,5 +63,8 @@
     "sinon-chai": "^2.12.0",
     "sinon-stub-promise": "^4.0.0",
     "webpack": "^3.5.4"
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0"
   }
 }
