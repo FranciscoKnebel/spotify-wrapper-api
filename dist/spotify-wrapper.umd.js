@@ -85,7 +85,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var HEADERS = exports.HEADERS = {
 	headers: {
-		Authorization: 'Bearer ' + "BQBokid1kIrGkUDfzKaYyK-9P-T2WEVqGfhr4F5RVL7qQ1M46E_oirrlWfP6KEDVCXQZpAntflm1QWSQLvocz7boDB9QnPS5GroFUhBapwzQ2BKH3gfm46Vnuf09JlNxJCVkeIa5v3A6kp5n2vSAgg"
+		Authorization: 'Bearer ' + "BQBXoSB7vAXzux9EFuiD8a-7oyYy79QPRd-BW85WijefnhC4X_nBFjAHOobiW19hdrVRmtOE93qZ2g0nXf25m-dcZ_A9ZbYW-LJX3xb680xsxRY8tWHUf_mboMEzcZyJEkedMUxTrQITRG9Bv-sL4Q"
 	}
 };
 

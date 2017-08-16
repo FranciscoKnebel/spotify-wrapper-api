@@ -6,26 +6,39 @@
 	</head>
 	<body>
 
-		<div id="albuns"></div>
+		<div id="albuns" style="text-align: center;"></div>
 
 		<script type="text/javascript" src="../dist/spotify-wrapper.umd.min.js"></script>
 		<script type="text/javascript">
 			const element = document.getElementById('albuns');
 
-			function fetchTheDamnAlbumsBaby(promise, element) {
-				promise
-					.then(data => data['albums'].items)
-					.then(items => items.map(item => `<img src="${item.images[1].url}" alt="${item.name}">`).join(''))
-					.then(markup => element.insertAdjacentHTML('beforeend', markup));
+			function shuffleArray(array) {
+				for (var i = array.length - 1; i > 0; i--) {
+					var j = Math.floor(Math.random() * (i + 1));
+					var temp = array[i];
+					array[i] = array[j];
+					array[j] = temp;
+				}
+				return array;
+			}
+
+			function fetchTheDamnAlbumsBaby(promises, element) {
+				Promise
+					.all(promises)
+					.then(values => values.map(data => data['albums'].items))
+					.then(items => [].concat.apply([], items))
+					.then(items => items.map(item => `<img src="${item.images[1].url}" alt="${item.name}">`))
+					.then(markup => {
+						element.innerHTML = shuffleArray(markup).join('');
+					})
 			}
 
 			const albums1 = spotifyWrapper.searchAlbums('The Beatles');
 			const albums2 = spotifyWrapper.searchAlbums('Rolling Stones');
 			const albums3 = spotifyWrapper.searchAlbums('Led Zeppelin');
 
-			fetchTheDamnAlbumsBaby(albums1, element);
-			fetchTheDamnAlbumsBaby(albums2, element);
-			fetchTheDamnAlbumsBaby(albums3, element);
+			fetchTheDamnAlbumsBaby([albums1, albums2, albums3], element);
+
 		</script>
 	</body>
 </html>

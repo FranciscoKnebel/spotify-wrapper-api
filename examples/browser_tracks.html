@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="albuns" style="text-align: center;"></div>
+
+		<script type="text/javascript" src="../dist/spotify-wrapper.umd.min.js"></script>
+		<script type="text/javascript">
+			const element = document.getElementById('albuns');
+
+			function fetchTheDamnAlbumBaby(promise, element) {
+				promise
+					.then(data => data.albums.items)
+					.then(items => items.map(item => ({ id: item.id, name: item.name, image: item.images[1].url })))
+					.then(items => items.map(item => `<img src="${item.image}" alt="${item.name}" id="${item.id}">`).join(''))
+					.then(markup => {
+						element.innerHTML = markup;
+					})
+			}
+
+			const albums = spotifyWrapper.searchAlbums('Led Zeppelin');
+			fetchTheDamnAlbumBaby(albums, element);
+
+		</script>
+	</body>
+</html>
