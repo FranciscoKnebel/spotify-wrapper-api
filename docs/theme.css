@@ -1,0 +1,83 @@
+body {
+	background-color: #FAFAFA;
+}
+
+h1, h2, h3 {
+	text-align: center;
+}
+
+.request {
+	margin: 1em;
+	text-align: center;
+}
+
+.request input {
+	width: 30%;
+	min-width: 150px;
+	padding: .5em;
+	border-radius: 5px;
+	border: 2px solid #EEE;
+}
+
+.request button {
+	background-color: #DDD;
+	padding: .5em;
+	border-radius: 5px;
+	border: 2px solid #EEE;
+	cursor: pointer;
+}
+
+.request p {
+	word-break: break-word;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-gap: 15px;
+	color: #444;
+	justify-items: center;
+	justify-content: space-evenly;
+	align-content: space-evenly;
+}
+
+@media screen and (max-width: 1400px) {
+	.wrapper {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.wrapper {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.wrapper {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.wrapper {
+		grid-template-columns: 1fr;
+	}
+}
+
+.wrapper div {
+	max-width: 250px;
+}
+
+.wrapper img {
+	width: 100%;
+	max-width: 250px;
+	cursor: pointer;
+}
+	
+.wrapper audio {
+	width: calc(100% - 2px);
+	max-width: 248px;
+	margin-top: -5px;
+	border: 1px solid;
+}

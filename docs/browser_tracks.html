@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<link rel="stylesheet" href="theme.css">
+	</head>
+	<body>
+		<h1>Tracks</h1>
+		<p style="text-align: center;">Inform an artist and preview the first song in their albums.</p>
+		<div class="request">
+			<p>Get your token here: <a href="https://developer.spotify.com/web-api/console/get-search-item/">https://developer.spotify.com/web-api/console/get-search-item/</a></p>
+			<input id="token_value" type="text" name="token" placeholder="Inform your token here">
+			<br>
+			<input id="artist_value" type="text" name="artist" placeholder="Inform your artist here">
+			<br>
+			<button id="token_button">Request</button>
+		</div>
+
+		<div class="wrapper" id="albuns"></div>
+
+		<script type="text/javascript" src="../dist/spotify-wrapper.umd.min.js"></script>
+		<script type="text/javascript">
+			const element = document.getElementById('albuns');
+			const token_button = document.getElementById('token_button');
+			const token_value = document.getElementById('token_value');
+			const artist = document.getElementById('artist_value');
+			let images;
+			let playing = undefined;
+
+			function fetchTheDamnAlbumBaby(promise, element) {
+				promise
+					.then(data => data.albums.items)
+					.then(items => items.map(item => spotify.album.getAlbum(item.id))) //({ id: item.id, name: item.name, image: item.images[1].url })))
+					.then(promises => Promise.all(promises))
+					.then(albums => albums.map(album => ({ name: album.name, image: album.images[1].url, track: album.tracks.items[0].preview_url , id: album.id })))
+					.then(items => items.map(item => `
+						<div>
+							<img src="${item.image}" alt="${item.name}" title="${item.name}" data-id="${item.id}">
+							<audio controls id="${item.id}">
+								<source type="audio/mpeg" src="${item.track}">
+								Your browser does not support the audio element.
+							</audio>
+						</div>
+					`).join(''))
+					.then(markup => {
+						element.innerHTML = markup;
+						
+						images = document.getElementsByTagName('img');
+						for(img of images) {
+							const id = img.dataset.id;
+
+							img.addEventListener('click', () => {
+								if(playing !== undefined) {
+									document.getElementById(playing).pause();
+								}
+								
+								if(playing !== id) {
+									document.getElementById(id).play();
+									playing = id;
+								} else {
+									playing = undefined;
+								}
+							});
+						}
+					});
+			}
+
+			let token;
+			let spotify;
+			artist_value.addEventListener("keyup", (event) => {
+				event.preventDefault();
+				if (event.keyCode == 13) {
+					token_button.click();
+				}
+			});
+			token_button.addEventListener('click', () => {
+				token = token_value.value;
+
+				spotify = new SpotifyWrapper({ token });
+
+				let albums = spotify.search.albums(artist.value);
+				fetchTheDamnAlbumBaby(albums, element);
+			});
+
+		</script>
+	</body>
+</html>

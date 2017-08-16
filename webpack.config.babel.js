@@ -6,7 +6,7 @@ dotenv.config();
 const include = join(__dirname, 'src');
 
 export default {
-	entry: './src/index',
+	entry: './index',
 	output: {
 		path: join(__dirname, 'dist'),
 		libraryTarget: 'umd',
@@ -25,9 +25,4 @@ export default {
 	node: {
 		fs: 'empty',
 	},
-	plugins: [
-		new webpack.EnvironmentPlugin([
-			'SPOTIFY_TOKEN',
-		]),
-	],
 };
