@@ -22,9 +22,10 @@
 					})
 			}
 
-			const spotify = new SpotifyWrapper({ token: 'BQBONT0mbHTSSgG94SEH7U3UfMCPnSE47dwK_gZEPET0u_w1tSAZxVdBMDNho_ZOxyimCHbE68xNSE0RR892RT4gKsviisJdOfFQhHRFkcgXDCPMfiiM0f6alU7FK2auFZuOoG1bRYfypAczGe6vyA' })
+			const token = 'BQBqzKgDlXZ1z5wmnhk3P1744LpUygPSJcovIJ3Q72QLB2mBsDM_vx710EJcstkyja3Mgw_fCrO3yf806PaGvE_vvaG0ou20cCKiK1490bUXfoGMPGbFbwGD0D8Iv74dvORqOFCg6lVQhMBmVDc1SA';
+			const spotify = new SpotifyWrapper({ token });
 
-			const albums = spotify.searchAlbums('Led Zeppelin');
+			const albums = spotify.search.albums('Led Zeppelin');
 			fetchTheDamnAlbumBaby(albums, element);
 
 		</script>

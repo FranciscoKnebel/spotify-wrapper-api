@@ -86,7 +86,7 @@ describe('Spotify Wrapper Library', () => {
 			});
 		});
 
-		it('should return the correct data from promise', () => {
+		it('should return the correct data from the promise', () => {
 			promise.resolves({ data: 'jabumga' });
 
 			const spotify = new SpotifyWrapper({
