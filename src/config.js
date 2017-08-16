@@ -1,8 +1,3 @@
-import path from 'path';
-import dotenv from 'dotenv';
-
-dotenv.config({ path: path.join(path.dirname(__dirname), '.env') });
-
 export const HEADERS = {
 	headers: {
 		Authorization: `Bearer ${process.env.SPOTIFY_TOKEN}`,

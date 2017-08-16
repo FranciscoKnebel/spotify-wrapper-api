@@ -4,6 +4,12 @@
   "description": "Spotify Wrapper API, curso JS com TDD.",
   "main": "src/index.js",
   "scripts": {
+    "clean": "./node_modules/.bin/rimraf lib",
+    "build": "./node_modules/.bin/babel --out-dir lib src",
+    "build:watch": "npm run build -- --watch",
+		"build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
+		"build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
+		"build:all": "npm run build && npm run build:umd && npm run build:umd:min",
     "lint": "./node_modules/.bin/eslint src/**/*.js tests/**/*.spec.js",
     "prepush": "npm run lint && npm run test:coverage",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
@@ -37,6 +43,8 @@
   },
   "homepage": "https://github.com/FranciscoKnebel/spotify-wrapper-api#readme",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.24.1",
     "chai": "^4.1.1",
@@ -50,11 +58,13 @@
     "mocha": "^3.5.0",
     "node-fetch": "^1.7.2",
     "nyc": "^11.1.0",
+    "rimraf": "^2.6.1",
     "sinon": "^3.2.0",
     "sinon-chai": "^2.12.0",
-    "sinon-stub-promise": "^4.0.0"
+    "sinon-stub-promise": "^4.0.0",
+    "webpack": "^3.5.4"
   },
   "dependencies": {
     "dotenv": "^4.0.0"
-  }
+	}
 }
