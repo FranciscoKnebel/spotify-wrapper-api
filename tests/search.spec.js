@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import sinonStubPromise from 'sinon-stub-promise';
 
-import { search, searchArtists, searchAlbums, searchTracks, searchPlaylists } from '../src/main';
+import { search, searchArtists, searchAlbums, searchTracks, searchPlaylists } from '../src/search';
 
 chai.use(sinonChai);
 sinonStubPromise(sinon);
@@ -26,27 +26,27 @@ describe('Spotify Wrapper', () => {
 
 	describe('Smoke Tests', () => {
 		// search generic
-		it('should exist the search method', () => {
+		it('should have a search method', () => {
 			expect(search).to.exist;
 		});
 
 		// searchAlbums
-		it('should exist the searchAlbums method', () => {
+		it('should have a searchAlbums method', () => {
 			expect(searchAlbums).to.exist;
 		});
 
 		// searchArtists
-		it('should exist the searchArtists method', () => {
+		it('should have a searchArtists method', () => {
 			expect(searchArtists).to.exist;
 		});
 
 		// searchTracks
-		it('should exist the searchTracks method', () => {
+		it('should have a searchTracks method', () => {
 			expect(searchTracks).to.exist;
 		});
 
 		// searchPlaylists
-		it('should exist the searchPlaylists method', () => {
+		it('should have a searchPlaylists method', () => {
 			expect(searchPlaylists).to.exist;
 		});
 	});
