@@ -1,6 +1,6 @@
 {
   "name": "spotify-wrapper-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Spotify Wrapper API, curso JS com TDD.",
   "main": "src/index.js",
   "scripts": {
@@ -17,6 +17,10 @@
     "test:coverage": "./node_modules/.bin/nyc npm test",
     "test:coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
   },
+  "files": [
+	"dist",
+	"lib"
+  ],
   "nyc": {
     "functions": 80,
     "lines": 80,
@@ -35,7 +39,9 @@
   },
   "keywords": [
     "js",
-    "tdd"
+    "tdd",
+	"spotify",
+	"wrapper"
   ],
   "author": "Francisco Knebel <franciscopaivaknebel@gmail.com> (https://github.com/franciscoknebel)",
   "license": "MIT",

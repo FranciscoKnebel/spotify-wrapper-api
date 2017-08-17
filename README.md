@@ -20,7 +20,7 @@ For environments that don't support fetch, you'll need to provide a [polyfill](h
 ## Installation
 
 ```sh
-$ npm install spotify-wrapper --save
+$ npm install spotify-wrapper-api --save
 ```
 
 ## How to use
@@ -29,7 +29,7 @@ $ npm install spotify-wrapper --save
 
 ```js
 // to import a specific method
-import SpotifyWrapper from 'spotify-wrapper';
+import SpotifyWrapper from 'spotify-wrapper-api';
 
 const spotify = new SpotifyWrapper({
   token: 'YOUR_TOKEN_HERE'
@@ -42,7 +42,7 @@ spotify.search.artists('The Beatles');
 ### CommonJS
 
 ```js
-const spotifyWrapper = require('spotify-wrapper');
+const spotifyWrapper = require('spotify-wrapper-api');
 
 const spotify = new SpotifyWrapper({
   token: 'YOUR_TOKEN_HERE'
@@ -59,7 +59,7 @@ const spotify = new SpotifyWrapper({
 <script src="spotify-wrapper.umd.min.js"></script>
 ```
 
-After that the library will be available to the Global as `SpotifyWrapper`. Follow an example:
+After that the library will be available to the Global scope as `SpotifyWrapper`. Example usage as follows:
 
 ```js
 
@@ -72,7 +72,17 @@ const albums = spotify.search.albums('Choosen Artist');
 
 ## Methods
 
-> Follow the methods that the library provides.
+> Here are listed all methods that the library provides.
+
+- Search
+	- albums
+	- artists
+	- tracks
+	- playlists
+- Album
+	- getAlbum
+	- getAlbums
+	- getTracks
 
 ### search.albums(query)
 

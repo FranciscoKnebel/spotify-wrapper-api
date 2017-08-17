@@ -1,8 +1,5 @@
 import { join } from 'path';
-import webpack from 'webpack';
-import dotenv from 'dotenv';
 
-dotenv.config();
 const include = join(__dirname, 'src');
 
 export default {
