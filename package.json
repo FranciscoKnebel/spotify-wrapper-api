@@ -1,8 +1,8 @@
 {
   "name": "spotify-wrapper-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Spotify Wrapper API, curso JS com TDD.",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "clean": "./node_modules/.bin/rimraf lib",
     "build": "./node_modules/.bin/babel --out-dir lib src",
@@ -71,8 +71,5 @@
     "sinon-chai": "^2.12.0",
     "sinon-stub-promise": "^4.0.0",
     "webpack": "^3.5.4"
-  },
-  "dependencies": {
-    "dotenv": "^4.0.0"
   }
 }
